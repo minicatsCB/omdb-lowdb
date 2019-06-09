@@ -12,13 +12,18 @@ app.use(express.urlencoded({
 }));
 
 app.get("/", (req, res) => {
-    controller.getAllMovies();
-    res.end();
+    let movies = controller.getAllMovies();
+    res.render("index", { movies: movies});
 });
 
 app.get("/create", (req, res) => {
-    controller.saveMovie(req.query.title);
-    res.end();
+    controller.saveMovie(req.query.title).then(movie => {
+        if(movie){
+            res.render("index", { movies: [movie] });
+        } else {
+            res.redirect("/");
+        }
+    });
 });
 
 app.get("/movie/:id", (req, res) => {
