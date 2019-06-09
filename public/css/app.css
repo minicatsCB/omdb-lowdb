@@ -1,0 +1,9 @@
+#movies, #movie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.info-item {
+    border-top: 1px solid black;
+}
