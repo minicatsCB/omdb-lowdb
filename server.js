@@ -37,13 +37,13 @@ app.post("/movie/:id/delete", (req, res) => {
 });
 
 app.get("/movie/:id/edit", (req, res) => {
-    controller.getMovieById(req.params.id);
-    res.end();
+    let movie = controller.getMovieById(req.params.id);
+    res.render("movie", { movie: movie, isEditOn: true });
 });
 
 app.post("/movie/:id/update", (req, res) => {
     controller.updateMovie(req.params.id, req.body);
-    res.end();
+    res.redirect("/movie/" + req.params.id);
 });
 
 app.listen(port, () => console.log("Listening on port " + port));
