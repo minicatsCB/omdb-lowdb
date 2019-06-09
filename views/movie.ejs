@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<%- include includes/head %>
+
+<body>
+    <%- include includes/jumbotron %>
+    <div class="mx-3">
+        <div id="movie">
+            <%- include("includes/master", {movie: movie, isEditOn: isEditOn}); %>
+            <%- include("includes/detail", {movie: movie, isEditOn: isEditOn}); %>
+        </div>
+    </div>
+    <% include includes/scripts %>
+</body>
+
+</html>

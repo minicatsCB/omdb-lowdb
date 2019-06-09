@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<%- include includes/head %>
+
+<body>
+    <%- include includes/jumbotron %>
+    <div id="movies">
+        <% movies.forEach(function(movie){ %>
+        <%- include("includes/master", { movie: movie, isEditOn: false }); %>
+        <% }); %>
+    </div>
+    <% include includes/scripts %>
+</body>
+
+</html>
